@@ -21,9 +21,9 @@
         |--|--|--|
         | database_name | database name for storing data for backend | demo |
         | database_user | user name to access postgresql | demo |
-        | database_host | database host name, only modify it if you don't want to store data in postgresql database provided by `RealWordAppContainer` | database |
-        | database_port | port number of database service , only modify it if you don't want to store data in postgresql database provided by `RealWordAppContainer` | 5432 |
-        | service_domain_name | domain name to access `RealWordAppContainer` service | demo.com |
+        | database_host | database host name, only modify it if you don't want to store data in postgresql database provided by `RealWorldAppContainer` | database |
+        | database_port | port number of database service , only modify it if you don't want to store data in postgresql database provided by `RealWorldAppContainer` | 5432 |
+        | service_domain_name | domain name to access `RealWorldAppContainer` service | demo.com |
         | wsgi_processes | number of wsgi processes of backend, modify it for performance requirement | 10 |
         | nginx_worker_process | number of nginx worker processes of backend, modify it for performance requirement | 1 |
         | nginx_keep_alive_timeout | connection timeout of nginx of backend, modify it for performance requirement | 65 |
@@ -35,7 +35,7 @@
         |--|--|--|
         | docker_source | URL of official `docker` repository of `yum`. Effects which version of `docker` will be deployed.  | https://download.docker.com/linux/centos/docker-ce.repo |
         | docker_compose_source | URL of official `docker-compose`. Effects which version of `docker-compose` will be deployed | https://github.com/docker/compose/releases/download/1.24.0/docker-compose-Linux-x86_64 |
-        | real_world_app_container_source | Git repository of `RealWorldAppContainer` | https://github.com/HallBlazzar/RealWordAppContainer.git |
+        | real_world_app_container_source | Git repository of `RealWorldAppContainer` | https://github.com/HallBlazzar/RealWorldAppContainer.git |
         | frontend_source | Git repository of `Vue.js` frontend of `RealWorldAppContainer` | https://github.com/gothinkster/vue-realworld-example-app.git |
         | backend_source | Git repository of `Django` backend of `RealWorldAppContainer` | https://github.com/gothinkster/django-realworld-example-app.git |
         | project_dir | Full path of where `RealWorldAppContainer` will be deployed in target host | /opt/real_world_app_container |
