@@ -1,0 +1,6 @@
+docker_source: https://download.docker.com/linux/centos/docker-ce.repo
+docker_compose_source: https://github.com/docker/compose/releases/download/1.24.0/docker-compose-Linux-x86_64
+real_world_app_container_source: https://github.com/HallBlazzar/RealWordAppContainer.git
+frontend_source: https://github.com/gothinkster/vue-realworld-example-app.git
+backend_source: https://github.com/gothinkster/django-realworld-example-app.git
+project_dir: /opt/real_world_app_container

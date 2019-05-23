@@ -1,0 +1,16 @@
+- name: install epel
+  yum:
+    name:
+      - epel-release
+
+- name: install pip
+  yum:
+    name:
+      - python-pip
+
+- name: install python module to allow ansible control docker
+  pip:
+    name:
+      - docker
+      - PyYAML
+      - docker-compose

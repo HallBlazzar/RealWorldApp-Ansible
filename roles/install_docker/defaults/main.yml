@@ -1,0 +1,2 @@
+docker_source: https://download.docker.com/linux/centos/docker-ce.repo
+docker_compose_source: https://github.com/docker/compose/releases/download/1.24.0/docker-compose-Linux-x86_64

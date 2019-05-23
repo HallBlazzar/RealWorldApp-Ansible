@@ -1,0 +1,29 @@
+- name: install pre-request packages
+  yum:
+    name:
+      - yum-utils
+      - device-mapper-persistent-data
+      - lvm2
+    state: present
+
+- name: add repository
+  command: sudo yum-config-manager --add-repo {{ docker_source }}
+
+- name: install docker-ce
+  yum:
+    name:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io
+
+- name: enable docker daemon
+  systemd:
+    name: docker
+    enabled: yes
+    state: started
+
+- name: install docker-compose
+  get_url:
+    url: "{{ docker_compose_source }}"
+    dest: /usr/local/bin/docker-compose
+    mode: 0755

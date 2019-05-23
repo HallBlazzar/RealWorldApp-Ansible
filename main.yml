@@ -1,0 +1,59 @@
+- name: prepare environment
+  hosts: target
+  become: true
+  vars_files:
+    - vars/source.yml
+
+  roles:
+    - role: install_docker
+    - role: install_ansible_related_docker_packages
+
+  tasks:
+    - name: install git
+      yum:
+        name:
+          - git
+        state: present
+
+- name: deploy project
+  hosts: target
+  become: true
+  vars_files:
+    - vars/source.yml
+    - vars/env.yml
+
+  tasks:
+    - name: pull project
+      git:
+        repo: "{{ real_world_app_container_source }}"
+        dest: "{{ project_dir }}"
+        force: yes
+
+    - name: pull frontend
+      git:
+        repo: "{{ frontend_source }}"
+        dest: "{{ project_dir }}/frontend/frontend"
+        force: yes
+
+    - name: pull backend
+      git:
+        repo: "{{ backend_source }}"
+        dest: "{{ project_dir }}/backend/backend"
+        force: yes
+
+    - name: configure project
+      template:
+        src: templates/.env.j2
+        dest: "{{ project_dir }}/.env"
+
+    - name: build images of frontend and backend
+      docker_service:
+        project_src: "{{ project_dir }}"
+        build: yes
+        state: present
+
+    - name: start services
+      docker_service:
+        project_src: "{{ project_dir }}"
+        pull: yes
+        state: present
